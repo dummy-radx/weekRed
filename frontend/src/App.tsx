@@ -4,6 +4,10 @@ import './index.css';
 import plushiesImg from './assets/plushies.png';
 import sunflowerImg from './assets/sunflower.png';
 import orchidImg from './assets/orchid.png';
+import whiteLilyImg from './assets/white_lily.png';
+import dandelionImg from './assets/white_dandelion.png';
+import whiteSnowdropImg from './assets/white_snowdrop.png';
+import whiteDaisyImg from './assets/white_daisy.png';
 import musicFile from './assets/Sufjan_Stevens_-_Mystery_of_Love_(mp3.pm).mp3';
 
 // Heart Particle Component
@@ -90,6 +94,11 @@ export default function App() {
 
   const nextReason = (e: React.MouseEvent) => {
     setReasonIndex((prev) => (prev + 1) % reasons.length);
+    spawnParticles(e, 'heart', 2);
+  };
+
+  const prevReason = (e: React.MouseEvent) => {
+    setReasonIndex((prev) => (prev - 1 + reasons.length) % reasons.length);
     spawnParticles(e, 'heart', 2);
   };
 
@@ -231,7 +240,7 @@ export default function App() {
         {activeTab === 'reasons' && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
             <h2 className="handwritten" style={{ color: 'var(--text-secondary)' }}>Reasons I Love You</h2>
-            <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Tap the card for another reason</p>
+            <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Tap the card or use the buttons below</p>
             
             <div 
               className="reason-card floating" 
@@ -242,7 +251,26 @@ export default function App() {
                 "{reasons[reasonIndex]}"
               </p>
             </div>
-            <p style={{ color: 'var(--text-secondary)' }}>{reasonIndex + 1} / {reasons.length}</p>
+            
+            <div style={{ display: 'flex', gap: '15px', alignItems: 'center', marginTop: '-10px' }}>
+              <button 
+                className="tab-btn" 
+                style={{ padding: '8px 16px', fontSize: '0.9rem' }} 
+                onClick={prevReason}
+              >
+                ⬅️ Prev
+              </button>
+              <p style={{ color: 'var(--text-secondary)', margin: '0 10px', minWidth: '40px', textAlign: 'center' }}>
+                {reasonIndex + 1} / {reasons.length}
+              </p>
+              <button 
+                className="tab-btn" 
+                style={{ padding: '8px 16px', fontSize: '0.9rem' }} 
+                onClick={nextReason}
+              >
+                Next ➡️
+              </button>
+            </div>
           </div>
         )}
 
@@ -260,6 +288,22 @@ export default function App() {
               <div className={`interactive-item swaying`} style={{ animationDelay: '1s' }}>
                 <img src={orchidImg} alt="Elegant Orchid" />
                 <p className="handwritten" style={{ textAlign: 'center', marginTop: '10px' }}>Pretty Orchid</p>
+              </div>
+              <div className={`interactive-item swaying`} style={{ animationDelay: '0.5s' }}>
+                <img src={whiteLilyImg} alt="White Lily" />
+                <p className="handwritten" style={{ textAlign: 'center', marginTop: '10px' }}>Pure Lily</p>
+              </div>
+              <div className={`interactive-item swaying`} style={{ animationDelay: '1.5s' }}>
+                <img src={dandelionImg} alt="Dandelion" />
+                <p className="handwritten" style={{ textAlign: 'center', marginTop: '10px' }}>Make a Wish!</p>
+              </div>
+              <div className={`interactive-item swaying`} style={{ animationDelay: '0.2s' }}>
+                <img src={whiteDaisyImg} alt="White Daisy" />
+                <p className="handwritten" style={{ textAlign: 'center', marginTop: '10px' }}>Cute Daisy</p>
+              </div>
+              <div className={`interactive-item swaying`} style={{ animationDelay: '1.2s' }}>
+                <img src={whiteSnowdropImg} alt="White Snowdrop" />
+                <p className="handwritten" style={{ textAlign: 'center', marginTop: '10px' }}>Gentle Snowdrop</p>
               </div>
             </div>
           </div>
