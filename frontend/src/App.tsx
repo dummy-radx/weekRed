@@ -143,7 +143,7 @@ export default function App() {
         </button>
       </div>
 
-      <h1 className="handwritten" style={{ fontSize: '3.5rem', textAlign: 'center', marginBottom: '10px', textShadow: '2px 2px 4px rgba(255,183,178,0.3)' }}>
+      <h1 className="handwritten" style={{ textAlign: 'center', marginBottom: '10px', textShadow: '2px 2px 4px rgba(255,183,178,0.3)' }}>
         For My Cutu 🌸
       </h1>
 
@@ -196,7 +196,7 @@ export default function App() {
               <div className="envelope-flap"></div>
               <div className="envelope-body">
                 <div className="note-content polaroid" style={{ transform: isEnvelopeOpen ? 'translateY(0)' : 'translateY(100%)' }}>
-                  <p style={{ fontSize: '1.4rem' }}>
+                  <p>
                     Hey beautiful, <br /><br />
                     I know this week is physically and emotionally draining, but I just want to remind you how deeply I care about you. <br />
                     You are incredibly strong, and it is more than okay to just rest right now. Please don't stress about being productive. <br /><br />
@@ -247,7 +247,7 @@ export default function App() {
               onClick={nextReason}
               style={{ width: '100%', maxWidth: '350px', minHeight: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
-              <p className="handwritten" style={{ fontSize: '1.8rem', margin: 0 }}>
+              <p className="handwritten" style={{ margin: 0 }}>
                 "{reasons[reasonIndex]}"
               </p>
             </div>
